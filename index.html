@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>TouchMouse</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">	
+	<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+<body ng-controller="myControl">
+	<div class="content">
+		<!-- page1-start -->
+		<div class="page " id="start" ng-class="{active:page1}">
+			<img class="start_click same_c" ng-click="begin()" src="img/begin.png" alt="">
+		</div>
+		<!-- page1-end -->
+
+		<!-- page2-start -->
+		<div class="page" id="play" ng-class="{active:page2}">
+		    <div class="text">
+				<h2 class="play_text same_t">{{countText}}:{{countTime}}s</h2>
+				<h4 class="play_score same_t">分数：{{score}}</h4>
+		    </div>
+			<div class="areaGame">
+				<div class="mice" id="{{item.id}}"
+				ng-repeat="item in many">
+					<img ng-src="{{item.imgUrl}}" ng-click="imgClick(item.id-1)">
+				</div>
+			</div>
+		</div>
+		<!-- page2-end -->
+
+		<!-- page3-start -->
+		<div class="page" id="end" ng-class="{active:page3}">
+			<h3>总分:
+				<p>{{score}}</p>
+			</h3>
+			<img src="img/end.png" class="again_click same_c" ng-click="endClick()" alt="">
+		</div>
+		<!-- page3-end -->
+	</div>
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
